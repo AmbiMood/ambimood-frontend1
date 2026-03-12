@@ -1273,7 +1273,7 @@ const Signup = () => {
     if (formData.password !== formData.confirmPassword) { setError('Passwords do not match!'); return; }
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/signup', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: formData.name, email: formData.email, password: formData.password })
@@ -1290,7 +1290,7 @@ const Signup = () => {
     e.preventDefault();
     setError(''); setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/verify-otp', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email, otp })
@@ -1309,7 +1309,7 @@ const Signup = () => {
   const handleResendOTP = async () => {
     setLoading(true); setError(''); setSuccess('');
     try {
-      const response = await fetch('http://localhost:5000/api/resend-otp', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/resend-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email })

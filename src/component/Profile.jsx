@@ -1133,7 +1133,8 @@ const Profile = () => {
       try {
         const email = localStorage.getItem('userEmail');
         if (!email) { setLoadingHistory(false); return; }
-        const res = await fetch(`http://localhost:5000/api/mood-history/${encodeURIComponent(email)}`);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/mood-history/${userEmail}`);
+        // const res = await fetch(`http://localhost:5000/api/mood-history/${encodeURIComponent(email)}`);
         const data = await res.json();
         const counts = {};
         (data.history || []).forEach(item => { counts[item.emotion] = (counts[item.emotion] || 0) + 1; });

@@ -1524,8 +1524,10 @@ const EmotionDetector = () => {
     const userEmail = localStorage.getItem('userEmail') || '';
 
     try {
-      const url = `http://localhost:5000/api/music/recommend?emotion=${detectedEmotion}&language=${language}&userEmail=${userEmail}`;
+      const url = `${import.meta.env.VITE_API_BASE_URL}/api/music/recommend?emotion=${detectedEmotion}&language=${language}&userEmail=${userEmail}`;
       const response = await fetch(url);
+      //http://localhost:5000/api/music/recommend?
+    //  const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/music/recommend?
       const data = await response.json();
       setSongs(data.songs || []);
     } catch (error) {
@@ -1533,7 +1535,7 @@ const EmotionDetector = () => {
     } finally {
       setLoading(false);
     }
-  };
+     };
 
   const calculateHeartRate = (emotion) => {
     const bpmMap = {
