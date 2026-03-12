@@ -102,7 +102,7 @@
 
 //     try {
 //       const response = await fetch(
-//         `http://localhost:5000/api/music/recommend?emotion=${detectedEmotion}&language=${language}`
+//         `${import.meta.env.VITE_API_BASE_URL}/api/music/recommend?emotion=${detectedEmotion}&language=${language}`
 //       );
 //       const data = await response.json();
 //       setSongs(data.songs || []);
@@ -482,7 +482,7 @@
 //   const userEmail = localStorage.getItem('userEmail') || '';
 
 //   try {
-//     const url = `http://localhost:5000/api/music/recommend?emotion=${detectedEmotion}&language=${language}&userEmail=${userEmail}`;
+//     const url = `${import.meta.env.VITE_API_BASE_URL}/api/music/recommend?emotion=${detectedEmotion}&language=${language}&userEmail=${userEmail}`;
 //     const response = await fetch(url);
 //     const data = await response.json();
 //     setSongs(data.songs || []);
@@ -981,7 +981,7 @@
 //     const userEmail = localStorage.getItem('userEmail') || '';
 
 //     try {
-//       const url = `http://localhost:5000/api/music/recommend?emotion=${detectedEmotion}&language=${language}&userEmail=${userEmail}`;
+//       const url = `${import.meta.env.VITE_API_BASE_URL}/api/music/recommend?emotion=${detectedEmotion}&language=${language}&userEmail=${userEmail}`;
 //       const response = await fetch(url);
 //       const data = await response.json();
 //       setSongs(data.songs || []);
@@ -1341,7 +1341,7 @@
 //                     onClick={async () => {
 //                       const email = localStorage.getItem('userEmail');
 //                       if (!email) { alert(' Please Login!!'); return; }
-//                       const res = await fetch('http://localhost:5000/api/save-favorite', {
+//                       const res = await fetch('${import.meta.env.VITE_API_BASE_URL}/api/save-favorite', {
 //                         method: 'POST',
 //                         headers: { 'Content-Type': 'application/json' },
 //                         body: JSON.stringify({
@@ -1526,7 +1526,7 @@ const EmotionDetector = () => {
     try {
       const url = `${import.meta.env.VITE_API_BASE_URL}/api/music/recommend?emotion=${detectedEmotion}&language=${language}&userEmail=${userEmail}`;
       const response = await fetch(url);
-      //http://localhost:5000/api/music/recommend?
+      //${import.meta.env.VITE_API_BASE_URL}/api/music/recommend?
     //  const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/music/recommend?
       const data = await response.json();
       setSongs(data.songs || []);
